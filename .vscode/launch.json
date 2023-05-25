@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ApplicationStart<demo>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "Academia.start.ApplicationStart",
+            "projectName": "demo",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
