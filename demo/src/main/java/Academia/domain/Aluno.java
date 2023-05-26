@@ -1,8 +1,10 @@
 package Academia.domain;
 
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,28 +13,15 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 @Builder
 public class Aluno {
-    private Long id;
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String Nome;
     private String Valor;
     private String Plano;
-
-    
-
-    public Aluno save(Aluno aluno) {
-        return null;
-    }
-
-
-
-    public void add(Aluno aluno) {
-    }
-
-
-
- 
 
   
 }
