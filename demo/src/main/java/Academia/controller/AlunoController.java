@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import Academia.domain.Aluno;
+import Academia.requests.AlunoPostRequestBody;
+import Academia.requests.AlunoPutRequestBody;
 import Academia.service.AlunoService;
 import lombok.RequiredArgsConstructor;
 
@@ -34,8 +36,8 @@ public class AlunoController {
         return ResponseEntity.ok(alunoService.findById(id));
     }
     @PostMapping
-    public ResponseEntity<Aluno> save(@RequestBody Aluno aluno) {
-        return new ResponseEntity<>(alunoService.save(aluno), HttpStatus.CREATED);
+    public ResponseEntity<Aluno> save(@RequestBody AlunoPostRequestBody alunoPostRequestBody) {
+        return new ResponseEntity<>(alunoService.save(alunoPostRequestBody), HttpStatus.CREATED);
     }
 
     @DeleteMapping(path = "/{id}")
@@ -45,8 +47,8 @@ public class AlunoController {
     }
 
     @PutMapping
-    public ResponseEntity<Void> replace(@RequestBody Aluno aluno ){
-        alunoService.replace(aluno);
+    public ResponseEntity<Void> replace(@RequestBody AlunoPutRequestBody alunoPutRequestBody ){
+        alunoService.replace(alunoPutRequestBody);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
