@@ -4,8 +4,9 @@ import lombok.Data;
 
 @Data
 public class AlunoPutRequestBody {
-    private String Valor;
-    private String Plano;
-    private String Nome;
     private Long id;
+    private String Nome;
+    private String Plano;
+    private String Valor;  
+
 }

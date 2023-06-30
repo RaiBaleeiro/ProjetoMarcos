@@ -21,12 +21,14 @@ import lombok.RequiredArgsConstructor;
 
 
 @RestController
-@RequestMapping("Alunos")
+@RequestMapping("alunos")
 @RequiredArgsConstructor
 public class AlunoController {
     private final AlunoService alunoService;
 
-    @GetMapping(path = "List")
+
+
+    @GetMapping
     public ResponseEntity<List<Aluno>> list() {
         return ResponseEntity.ok(alunoService.listAll());
     }
