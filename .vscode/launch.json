@@ -2,11 +2,28 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ApplicationStart",
+            "request": "launch",
+            "mainClass": "Academia.ApplicationStart",
+            "projectName": "projeto-java-loja"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-ApplicationStart<demo>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "mainClass": "Academia.start.ApplicationStart",
             "projectName": "demo",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ApplicationStart<projeto-java-loja>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "Academia.start.ApplicationStart",
+            "projectName": "projeto-java-loja",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         }

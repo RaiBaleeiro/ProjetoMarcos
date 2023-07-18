@@ -13,13 +13,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import Academia.domain.Aluno;
-import Academia.requests.AlunoPostRequestBody;
-import Academia.requests.AlunoPutRequestBody;
-import Academia.service.AlunoService;
+import Academia.domain.Plano;
+import Academia.requests.PlanoPostRequestBody;
+import Academia.requests.PlanoPutRequestBody;
+import Academia.service.PlanoService;
 import Academia.util.DateUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -28,42 +27,38 @@ import lombok.extern.log4j.Log4j2;
 @RestController
 @Log4j2
 @RequiredArgsConstructor
-@RequestMapping("/Alunos")
-public class AlunoController {
+@RequestMapping("/Planos")
+public class PlanoController {
 	private final DateUtil dateUtil;
-    private final AlunoService alunoService;
+    private final PlanoService planoService;
     
     @GetMapping
-    public ResponseEntity<List<Aluno>> list(){
+    public ResponseEntity<List<Plano>> list(){
     	log.info(dateUtil.formatLocalDateTimeToDatabaseStyle(LocalDateTime.now()));
-        return ResponseEntity.ok(alunoService.listAll());
+        return ResponseEntity.ok(planoService.listAll());
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<Aluno> findById(@PathVariable long id){
-        return ResponseEntity.ok(alunoService.findByIdOrThrowBadRequestException(id));
+    public ResponseEntity<Plano> findById(@PathVariable long id){
+        return ResponseEntity.ok(planoService.findByIdOrThrowBadRequestException(id));
     }
     
     @PostMapping
-    public ResponseEntity<Aluno> save(@RequestBody AlunoPostRequestBody alunoPostRequestBody){
-        return new ResponseEntity<>(alunoService.save(alunoPostRequestBody), HttpStatus.CREATED);
+    public ResponseEntity<Plano> save(@RequestBody PlanoPostRequestBody planoPostRequestBody){
+        return new ResponseEntity<>(planoService.save(planoPostRequestBody), HttpStatus.CREATED);
     }
     
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable long id){
-		alunoService.delete(id);
+		planoService.delete(id);
     	return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
     
     @PutMapping
-    public ResponseEntity<Void> replace(@RequestBody AlunoPutRequestBody alunoPutRequestBody){
-    	alunoService.replace(alunoPutRequestBody);
+    public ResponseEntity<Void> replace(@RequestBody PlanoPutRequestBody PlanoPutRequestBody){
+    	planoService.replace(PlanoPutRequestBody);
     	return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-       @GetMapping(path = "/find")
-    public ResponseEntity<List<Aluno>> findByNome(@RequestParam(name="nome") String nome){
-        return ResponseEntity.ok(alunoService.findByNome(nome));
-    }
-
+    
 }
 

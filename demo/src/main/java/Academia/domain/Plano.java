@@ -15,14 +15,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Builder
-public class Aluno {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-    String Nome;
-    String Cpf;
-    String Email;
-    String Contato;
+public class Plano {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	Long id;
+	String Nome;
+	String Valor;
+    String Beneficios;
+    }
+	
 
-  
-}

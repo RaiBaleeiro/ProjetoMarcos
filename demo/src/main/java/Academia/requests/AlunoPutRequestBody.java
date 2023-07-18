@@ -6,7 +6,8 @@ import lombok.Data;
 public class AlunoPutRequestBody {
     private Long id;
     private String Nome;
-    private String Plano;
-    private String Valor;  
+    private String Cpf;
+    private String Email;
+    private String Contato;
 
 }

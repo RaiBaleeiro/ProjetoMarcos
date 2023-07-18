@@ -13,13 +13,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import Academia.domain.Aluno;
-import Academia.requests.AlunoPostRequestBody;
-import Academia.requests.AlunoPutRequestBody;
-import Academia.service.AlunoService;
+import Academia.domain.Vencimento;
+import Academia.requests.VencimentoPostRequestBody;
+import Academia.requests.VencimentoPutRequestBody;
+import Academia.service.VencimentoService;
 import Academia.util.DateUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -28,42 +27,38 @@ import lombok.extern.log4j.Log4j2;
 @RestController
 @Log4j2
 @RequiredArgsConstructor
-@RequestMapping("/Alunos")
-public class AlunoController {
+@RequestMapping("/Vencimentos")
+public class VencimentoController {
 	private final DateUtil dateUtil;
-    private final AlunoService alunoService;
+    private final VencimentoService vencimentoService;
     
     @GetMapping
-    public ResponseEntity<List<Aluno>> list(){
+    public ResponseEntity<List<Vencimento>> list(){
     	log.info(dateUtil.formatLocalDateTimeToDatabaseStyle(LocalDateTime.now()));
-        return ResponseEntity.ok(alunoService.listAll());
+        return ResponseEntity.ok(vencimentoService.listAll());
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<Aluno> findById(@PathVariable long id){
-        return ResponseEntity.ok(alunoService.findByIdOrThrowBadRequestException(id));
+    public ResponseEntity<Vencimento> findById(@PathVariable long id){
+        return ResponseEntity.ok(vencimentoService.findByIdOrThrowBadRequestException(id));
     }
     
     @PostMapping
-    public ResponseEntity<Aluno> save(@RequestBody AlunoPostRequestBody alunoPostRequestBody){
-        return new ResponseEntity<>(alunoService.save(alunoPostRequestBody), HttpStatus.CREATED);
+    public ResponseEntity<Vencimento> save(@RequestBody VencimentoPostRequestBody vencimentoPostRequestBody){
+        return new ResponseEntity<>(vencimentoService.save(vencimentoPostRequestBody), HttpStatus.CREATED);
     }
     
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable long id){
-		alunoService.delete(id);
+    	vencimentoService.delete(id);
     	return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
     
     @PutMapping
-    public ResponseEntity<Void> replace(@RequestBody AlunoPutRequestBody alunoPutRequestBody){
-    	alunoService.replace(alunoPutRequestBody);
+    public ResponseEntity<Void> replace(@RequestBody VencimentoPutRequestBody vencimentoPutRequestBody){
+    	vencimentoService.replace(vencimentoPutRequestBody);
     	return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-       @GetMapping(path = "/find")
-    public ResponseEntity<List<Aluno>> findByNome(@RequestParam(name="nome") String nome){
-        return ResponseEntity.ok(alunoService.findByNome(nome));
-    }
-
+    
 }
 

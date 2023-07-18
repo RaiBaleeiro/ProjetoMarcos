@@ -1,10 +1,13 @@
-package Academia.Repository;
+package Academia.repository;
 
-import Academia.domain.Aluno;
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface AlunoRepository extends JpaRepository<Aluno, Long> {
+import Academia.domain.Aluno;
 
+public interface AlunoRepository extends JpaRepository<Aluno, Long>{
+
+    	List<Aluno> findByNome(String nome);
 
 }
-
