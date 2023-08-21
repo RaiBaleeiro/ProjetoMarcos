@@ -2,7 +2,7 @@ package Academia.service;
 
 import org.springframework.web.server.ResponseStatusException;
 import Academia.domain.Plano;
-import Academia.repository.PlanoRepository;
+import Academia.Repository.PlanoRepository;
 import Academia.requests.PlanoPostRequestBody;
 import Academia.requests.PlanoPutRequestBody;
 import lombok.RequiredArgsConstructor;

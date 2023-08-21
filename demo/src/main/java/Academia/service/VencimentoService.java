@@ -2,7 +2,7 @@ package Academia.service;
 
 import org.springframework.web.server.ResponseStatusException;
 import Academia.domain.Vencimento;
-import Academia.repository.VencimentoRepository;
+import Academia.Repository.VencimentoRepository;
 import Academia.requests.VencimentoPostRequestBody;
 import Academia.requests.VencimentoPutRequestBody;
 import lombok.RequiredArgsConstructor;

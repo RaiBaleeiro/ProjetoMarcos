@@ -1,4 +1,4 @@
-package Academia.repository;
+package Academia.Repository;
 
 import java.util.List;
 

@@ -3,7 +3,7 @@ package Academia.service;
 import org.springframework.web.server.ResponseStatusException;
 
 import Academia.domain.Aluno;
-import Academia.repository.AlunoRepository;
+import Academia.Repository.AlunoRepository;
 import Academia.requests.AlunoPostRequestBody;
 import Academia.requests.AlunoPutRequestBody;
 import lombok.RequiredArgsConstructor;
